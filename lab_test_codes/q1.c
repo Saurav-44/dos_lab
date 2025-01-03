@@ -4,22 +4,22 @@
 #include <sys/wait.h>
 
 int main() {
-    pid_t pid = fork();  // Create a child process
+    pid_t pid = fork();  
 
     if (pid < 0) {
-        // Error in fork
+        
         perror("Fork failed");
         return 1;
     }
 
     if (pid == 0) {
-        // Child process
+        
 	printf("Child Process: PID = %d\n", getpid());
         while (1) {
-            sleep(1); // Sleep for 1 second to simulate some work
+            sleep(1); 
         }
     } else {
-        // Parent process
+        
 	printf("Parent Process: PID = %d\n", getpid());
 	wait(NULL);
         printf("Child process has finished.\n");
