@@ -78,7 +78,7 @@ void displaySortedReverseContent(const char *filename) {
         }
     }
 
-    // Display sorted lines
+    
     for (int i = 0; i < lineCount; i++) {
         printf("%s", lines[i]);
         free(lines[i]);
@@ -98,7 +98,7 @@ int main() {
             exit(EXIT_FAILURE);
         }
 
-        if (pid == 0) { // Child process
+        if (pid == 0) { 
             printf("Child %d created: PID = %d, PPID = %d\n", i, getpid(), getppid());
 
             if (i == 1) {
@@ -113,12 +113,12 @@ int main() {
             }
 
             exit(0);
-        } else { // Parent process
+        } else { 
             sleep(1);
         }
     }
 
-    // Parent process waits for all children to finish
+    
     while (wait(NULL) > 0)
         ;
 
